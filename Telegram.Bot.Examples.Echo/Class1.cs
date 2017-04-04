@@ -119,7 +119,7 @@ namespace Telegram.Bot.Examples.Echo
                     new [] // last row
                     {
                         new KeyboardButton("2.1"),
-                        new KeyboardButton("2.2"),
+                        new KeyboardButton("2.4"),
                     }
                 });
 
