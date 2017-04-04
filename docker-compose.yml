@@ -1,0 +1,8 @@
+version: '2.1'
+
+services:
+  telegram.bot.examples.echo:
+    image: telegram.bot.examples.echo
+    build:
+      context: .\Telegram.Bot.Examples.Echo
+      dockerfile: Dockerfile

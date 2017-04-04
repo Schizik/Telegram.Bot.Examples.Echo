@@ -1,0 +1,14 @@
+version: '2.1'
+
+services:
+  telegram.bot.examples.echo:
+    image: telegram.bot.examples.echo:dev
+    build:
+      args:
+        source: ${DOCKER_BUILD_SOURCE}
+    volumes:
+      - .\Telegram.Bot.Examples.Echo:C:\app
+      - ~\msvsmon:C:\msvsmon:ro
+    entrypoint: powershell -Command [System.Threading.Thread]::Sleep([System.Threading.Timeout]::Infinite)
+    labels:
+      - "com.microsoft.visualstudio.targetoperatingsystem=windows"
