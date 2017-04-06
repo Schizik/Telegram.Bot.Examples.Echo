@@ -119,7 +119,7 @@ namespace Telegram.Bot.Examples.Echo
                     new [] // last row
                     {
                         new KeyboardButton("2.1"),
-                        new KeyboardButton("2.4"),
+                        new KeyboardButton("2.2"),
                     }
                 });
 
@@ -157,17 +157,10 @@ namespace Telegram.Bot.Examples.Echo
 
                 await Bot.SendTextMessageAsync(message.Chat.Id, "Who or Where are you?", replyMarkup: keyboard);
             }
-            else
+            else if (message.Type == MessageType.TextMessage)
             {
-                var usage = @"Usage:
-/inline   - send inline keyboard
-/keyboard - send custom keyboard
-/photo    - send a photo
-/request  - request location or contact
-";
-
-                await Bot.SendTextMessageAsync(message.Chat.Id, usage,
-                    replyMarkup: new ReplyKeyboardHide());
+                // Echo each Message
+                await Bot.SendTextMessage(message.Chat.Id, message.Text);
             }
         }
 
